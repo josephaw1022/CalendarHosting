@@ -1,6 +1,6 @@
 <div
   class="
-    primary-bg
+    bg-pink-400
     min-h-screen min-w-full
     flex
     md:flex-row
@@ -15,7 +15,7 @@
 >
   <h1
     class="
-      accent-text
+      text-purple-600
       italic
       px-5
       mx-5
@@ -40,7 +40,13 @@
   >
     <mat-card-header>
       <mat-card-title>
-        <h1 class="accent-text text-2xl font-2 page-custom-font">
+        <h1
+          class="
+            text-purple-500 text-2xl
+            font-2
+            page-custom-font
+          "
+        >
           Get Started
         </h1>
       </mat-card-title>
@@ -56,8 +62,14 @@
           gap-2
         "
       >
-        <button mat-raised-button class="font-2" routerLink="signup">
-          Sign up
+        <button
+          mat-raised-button
+          class="signup transform lg:scale-150 hover:shadow-xl"
+          routerLink="../signup"
+        >
+          <h6 class="text-yellow-300 fancy-cursive-font">
+            Sign up
+          </h6>
         </button>
       </div>
     </mat-card-content>

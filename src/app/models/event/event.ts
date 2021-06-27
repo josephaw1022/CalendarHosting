@@ -1,8 +1,8 @@
 export interface Event {
-  title: string
-  date: string
-  startTime: string
-  endTime: string
+  title: string;
+  date: string;
+  startTime: string;
+  endTime: string;
 }
 
 /* 
@@ -10,18 +10,18 @@ Since this is an abstract Model that is only require for the IEvent attributes, 
 */
 
 interface TimeModel {
-  day: Date
-  hour: number
-  minute: number
+  day: Date;
+  hour: number;
+  minute: number;
 }
 
 export interface IEvent {
-  id: number
-  title: string
-  start: TimeModel
-  stop: TimeModel
+  id: number;
+  title: string;
+  start: TimeModel;
+  stop: TimeModel;
 }
 
-export type EventModel = IEvent[]
+export type EventModel = IEvent[];
 
-export type EventSet = IEvent[] | Event | null
+export type EventSet = IEvent[] | Event | null;

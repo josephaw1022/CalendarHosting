@@ -11,14 +11,3 @@ div {
   background-color: transparent !important;
   box-shadow: none;
 }
-
-.customColor {
-  color: inherit;
-}
-
-.clickColorChange {
-  color: white;
-  &:hover {
-    color: #93c5fd;
-  }
-}

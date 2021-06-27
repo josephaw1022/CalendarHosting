@@ -1,39 +1,39 @@
-import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
-import { AlleventsComponent } from './views/allevents/allevents.component'
-import { CalenderComponent } from './views/calender/calender.component'
-import { EventComponent } from './views/event/event.component'
-import { LandingpageComponent } from './views/landingpage/landingpage.component'
-import { PagenotfoundComponent } from './views/pagenotfound/pagenotfound.component'
-import { SignupComponent } from './views/signup/signup.component'
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { AlleventsComponent } from "./views/allevents/allevents.component";
+import { CalenderComponent } from "./views/calender/calender.component";
+import { EventComponent } from "./views/event/event.component";
+import { LandingpageComponent } from "./views/landingpage/landingpage.component";
+import { PagenotfoundComponent } from "./views/pagenotfound/pagenotfound.component";
+import { SignupComponent } from "./views/signup/signup.component";
 
 const routes: Routes = [
   {
-    path: 'calendar',
+    path: "calendar",
     component: CalenderComponent,
   },
   {
-    path: 'event',
+    path: "event",
     component: EventComponent,
   },
 
   {
-    path: 'signup',
+    path: "signup",
     component: SignupComponent,
   },
   {
-    path: '',
+    path: "",
     component: LandingpageComponent,
   },
   {
-    path: 'allevents',
+    path: "allevents",
     component: AlleventsComponent,
   },
   {
-    path: '**',
+    path: "**",
     component: PagenotfoundComponent,
   },
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

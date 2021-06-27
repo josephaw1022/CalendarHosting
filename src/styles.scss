@@ -4,6 +4,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import "~@angular/material/theming";
+
 @import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Knewave&family=Oswald&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap");
@@ -100,6 +101,10 @@ made class
   @apply text-pink-400;
 }
 
+.purple-bg {
+  @apply bg-purple-600;
+}
+
 h1,
 p {
   margin: 0px !important;
@@ -132,7 +137,7 @@ p {
 .clickColorChange {
   &:hover,
   &:active {
-    @apply text-blue-300;
+    @apply text-pink-400;
   }
 }
 

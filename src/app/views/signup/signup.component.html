@@ -1,11 +1,48 @@
-<app-loginnav></app-loginnav>
+<mat-toolbar
+  class="
+    min-h-full min-w-max
+    transform
+    h-20
+    purple-bg
+    flex flex-row
+    justify-between
+    items-center
+    overflow-x-hidden
+  "
+>
+  <button
+    mat-button
+    class="sm:px-1 lg:px-10 hover:scale-150"
+    routerLink=""
+  >
+    <mat-icon
+      class="transform text-yellow-400 lg:scale-125 duration-200"
+      >arrow_back</mat-icon
+    >
+  </button>
+
+  <h1
+    class="
+      sm:px-1
+      lg:px-10
+      m-0
+      text-pink-400
+      fancy-cursive-font
+      transform
+      lg:scale-125
+    "
+  >
+    {{ url.fetchRoute | uppercase }}
+  </h1>
+</mat-toolbar>
+
 <div
   class="
     flex flex-col
     justify-center
     items-center
     min-h-screen
-    accent-bg
+    bg-yellow-300
   "
 >
   <app-signupform></app-signupform>

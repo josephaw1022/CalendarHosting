@@ -13,12 +13,19 @@
     class="sm:px-1 lg:px-10 clickColorChange"
     routerLink="../calendar"
   >
-    <mat-icon class="transform hover:scale-110 text-white customColor"
+    <mat-icon
+      class="transform hover:scale-110 text-white customColor"
       >arrow_back</mat-icon
     >
   </button>
   <div
-    class="flex flex-row justify-between items-center flex-wrap gap-1"
+    class="
+      flex flex-row
+      justify-between
+      items-center
+      flex-wrap
+      gap-1
+    "
   >
     <button
       (click)="openDialog(dialogComponent2)"
@@ -27,12 +34,23 @@
       aria-label="Example icon-button with share icon"
     >
       <mat-icon
-        class="text-white transform hover:scale-110 clickColorChange"
+        class="
+          text-white
+          transform
+          hover:scale-110 hover:text-purple-700
+        "
         matTooltip="Add event(s)"
         >add</mat-icon
       >
     </button>
-    <h1 class="text-yellow-400 lg:mx-20 transform fancy-cursive-font">
+    <h1
+      class="
+        text-yellow-400
+        lg:mx-20
+        transform
+        fancy-cursive-font
+      "
+    >
       {{ user.fetchUsername | uppercase }}
     </h1>
   </div>
@@ -41,13 +59,15 @@
 <div
   class="
     min-h-screen min-w-full
-    bg-yellow-300
+    bg-yellow-200
     flex flex-col
     justify-start
     items-center
   "
 >
-  <mat-card class="transform customCardWidth transparentBackground">
+  <mat-card
+    class="transform customCardWidth transparentBackground"
+  >
     <mat-card-header class="text-center w-full">
       <mat-card-title
         class="
@@ -65,7 +85,7 @@
         <h1
           class="
             mx-4
-            text-purple-400
+            text-purple-500
             fancy-cursive-font
             transform
             scale-105
@@ -133,11 +153,17 @@
                     "
                   >
                     <p
-                      class="fancy-cursive-font text-purple-400"
+                      class="fancy-cursive-font text-purple-500"
                       style="word-wrap: normal"
                     >
                       Event:
-                      <b class="text-pink-300 italic secondary-font">
+                      <b
+                        class="
+                          text-pink-400
+                          italic
+                          secondary-font
+                        "
+                      >
                         {{ data.title }}
                       </b>
                     </p>
@@ -154,7 +180,9 @@
                   mat-icon-button
                   (click)="toDeleteObject(data)"
                 >
-                  <mat-icon>delete_forever</mat-icon>
+                  <mat-icon class="transform hover:text-red-500"
+                    >delete_forever</mat-icon
+                  >
                 </button>
               </mat-card-footer>
             </mat-card>

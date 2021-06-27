@@ -1,4 +1,4 @@
-<div class="accent-bg min-h-screen">
+<div class="bg-yellow-200 min-h-screen">
   <app-navbar></app-navbar>
   <div
     class="
@@ -31,7 +31,7 @@
       "
     >
       <mat-calendar
-        [dateClass]="dateClass()"
+        id="theCalender"
         [minDate]="minDate"
         [maxDate]="maxDate"
         class="
@@ -102,20 +102,24 @@
       <mat-card-content
         class="flex flex-col gap-2 items-center justify-evenly"
       >
-        <div *ngFor="let individualEvent of cal.GET">
+        <div
+          *ngFor="let individualEvent of cal.GET"
+          class="bg-transparent"
+        >
           <mat-card
             *ngIf="includeThis(individualEvent.start.day)"
             (click)="setSelected(individualEvent)"
             class="
               transform
               rounded-xl
-              bg-gray-200
+              bg-gray-300
+              border-gray-300
               p-0
               noPadding
               my-5
               hover:scale-105
               duration-200
-              rounded-lg
+              hover:shadow-xl
             "
           >
             <mat-card-header
@@ -164,7 +168,10 @@
               <button
                 *ngIf="cal.GET.length !== 1"
                 mat-icon-button
-                class="transform hover:scale-105 hover:text-red-600"
+                class="
+                  transform
+                  hover:scale-105 hover:text-red-600
+                "
                 (click)="toDelete(individualEvent)"
               >
                 <mat-icon class="customColor"

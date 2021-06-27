@@ -1,1 +1,1 @@
-export type DateModel = Date | null
+export type DateModel = Date | null;

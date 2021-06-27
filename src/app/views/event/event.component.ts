@@ -1,42 +1,51 @@
-import { Component, OnDestroy, OnInit } from '@angular/core'
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
-import { IEvent } from '../../models/event/event'
-import { CalenderService } from '../../services/calender/calender.service'
-import { RouteService } from '../../services/route/route.service'
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+} from "@angular/forms";
+import { IEvent } from "../../models/event/event";
+import { CalenderService } from "../../services/calender/calender.service";
+import { RouteService } from "../../services/route/route.service";
 @Component({
-  selector: 'app-event',
-  templateUrl: './event.component.html',
-  styleUrls: ['./event.component.scss'],
+  selector: "app-event",
+  templateUrl: "./event.component.html",
+  styleUrls: ["./event.component.scss"],
 })
 export class EventComponent implements OnDestroy {
   // Initialize min and max date for calendar
-  minDate: Date
-  maxDate: Date
+  minDate: Date;
+  maxDate: Date;
 
   constructor(
     private route: RouteService,
     public fb: FormBuilder,
     public cal: CalenderService
   ) {
-    const currentYear = new Date().getFullYear()
+    const currentYear = new Date().getFullYear();
 
     // Set the min and max date for calendar
-    this.minDate = new Date()
-    this.maxDate = new Date(currentYear + 1, 11, 31)
+    this.minDate = new Date();
+    this.maxDate = new Date(currentYear + 1, 11, 31);
   }
 
   // Initialize start and end date
-  startDate: Date = new Date()
-  endDate: Date = new Date()
+  startDate: Date = new Date();
+  endDate: Date = new Date();
 
   // The form object
   range = new FormGroup({
     title: new FormControl(),
     start: new FormControl(),
     end: new FormControl(),
-  })
+  });
 
   submitForm(): void {
+    // If the user doesn't submit an end date, assume that it's just a one day event
+    let endDate: any = this.range.value.end;
+    if (this.range.value.end == null) {
+      endDate = this.range.value.start;
+    }
     // Creating a compatible user input
     const date: IEvent = {
       id: this.cal.idCount + 1,
@@ -47,24 +56,24 @@ export class EventComponent implements OnDestroy {
         minute: 0,
       },
       stop: {
-        day: this.range.value.end,
+        day: endDate,
         hour: 12,
-        minute: 0,
+        minute: 1,
       },
-    }
-    this.cal.CREATE(date)
+    };
+    this.cal.CREATE(date);
 
     // Reset the values of the form
-    this.range.value.title = ''
-    this.range.value.start = new Date()
+    this.range.value.title = "";
+    this.range.value.start = new Date();
 
     // Then result the form class as well
     setTimeout(() => {
-      this.range.reset()
-    })
+      this.range.reset();
+    });
   }
 
   ngOnDestroy() {
-    this.route.setRoute('Calendar')
+    this.route.setRoute("Calendar");
   }
 }

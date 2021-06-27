@@ -1,13 +1,26 @@
 <mat-card
-  class="transform scale-105 sm:scale-110 md:scale-125 lg:scale-150"
+  class="
+    transform
+    scale-105
+    sm:scale-110
+    md:scale-125
+    lg:scale-150
+  "
   *ngIf="!hideForm"
 >
   <mat-card-header>
-    <mat-card-title class="secondary-font"> Sign Up </mat-card-title>
+    <mat-card-title class="fancy-cursive-font text-purple-700">
+      Sign Up
+    </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form
-      class="example-form flex flex-col justify-evenly items-center"
+      class="
+        example-form
+        flex flex-col
+        justify-evenly
+        items-center
+      "
       [formGroup]="signupForm"
     >
       <mat-form-field class="example-full-width">

@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing'
+import { TestBed } from "@angular/core/testing";
 
-import { CalenderService } from './calender.service'
+import { CalenderService } from "./calender.service";
 
-describe('CalenderService', () => {
-  let service: CalenderService
+describe("CalenderService", () => {
+  let service: CalenderService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({})
-    service = TestBed.inject(CalenderService)
-  })
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(CalenderService);
+  });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy()
-  })
-})
+  it("should be created", () => {
+    expect(service).toBeTruthy();
+  });
+});

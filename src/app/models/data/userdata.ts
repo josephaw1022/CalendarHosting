@@ -1,7 +1,7 @@
 export interface UserModel {
-  username: string
-  password: string
+  username: string;
+  password: string;
 }
 
-export type usernameModel = string | null
-export type passwordModel = string | null
+export type usernameModel = string | null;
+export type passwordModel = string | null;
