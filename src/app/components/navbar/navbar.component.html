@@ -1,0 +1,55 @@
+<mat-toolbar class="transform sm:h-20 primary-bg">
+  <div
+    class="
+      flex flex-col
+      sm:flex-row
+      justify-between
+      items-center
+      sm:gap-10
+      my-2
+    "
+  >
+    <span
+      class="
+        text-pink-400
+        fancy-cursive-font
+        transform
+        md:scale-125
+        ml-2
+      "
+    >
+      {{ route.fetchRoute | uppercase }}
+    </span>
+
+    <span
+      class="text-white mx-2 md:mx-10"
+      *ngIf="route.currentRoute !== 'New Event'"
+      >{{ date.getDate() | date }} 📆</span
+    >
+  </div>
+  <span class="navbar-spacer"></span>
+  <button
+    routerLink="../allevents"
+    mat-icon-button
+    class="example-icon lg:mx-4"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon
+      class="text-white transform hover:scale-110 clickColorChange"
+      matTooltip="View all events"
+      >list</mat-icon
+    >
+  </button>
+  <button
+    (click)="openDialog(dialogComponent)"
+    mat-icon-button
+    class="example-icon lg:mx-4"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon
+      class="text-white transform hover:scale-110 clickColorChange"
+      matTooltip="Add event(s)"
+      >add</mat-icon
+    >
+  </button>
+</mat-toolbar>

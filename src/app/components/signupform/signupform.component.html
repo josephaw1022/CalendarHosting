@@ -1,0 +1,45 @@
+<mat-card
+  class="transform scale-105 sm:scale-110 md:scale-125 lg:scale-150"
+  *ngIf="!hideForm"
+>
+  <mat-card-header>
+    <mat-card-title class="secondary-font"> Sign Up </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form
+      class="example-form flex flex-col justify-evenly items-center"
+      [formGroup]="signupForm"
+    >
+      <mat-form-field class="example-full-width">
+        <mat-label>username</mat-label>
+        <input
+          matInput
+          placeholder="ex: sarah102"
+          formControlName="username"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder=""
+          type="password"
+          formControlName="password"
+        />
+      </mat-form-field>
+
+      <button
+        (click)="onSubmit()"
+        mat-raised-button
+        type="button"
+        [disabled]="!signupForm.valid"
+        class="secondary-font"
+      >
+        Submit
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-spinner *ngIf="hideForm"></mat-spinner>

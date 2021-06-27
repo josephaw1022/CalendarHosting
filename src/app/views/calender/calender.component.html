@@ -1,0 +1,180 @@
+<div class="accent-bg min-h-screen">
+  <app-navbar></app-navbar>
+  <div
+    class="
+      flex
+      justify-evenly
+      md:flex-row-reverse
+      items-center
+      md:items-start
+      transform
+    "
+    [ngClass]="{
+      'flex-row': '!mobileLandscape',
+      'flex-col': 'mobileLandscape'
+    }"
+  >
+    <mat-card
+      class="
+        mx-2
+        demo-inline-calendar-card
+        my-2
+        transparent
+        calender-width
+        overflow-visible
+        rounded-lg
+        w-48
+        sm:w-72
+        md:w-72
+        lg:w-96
+        mt-10
+      "
+    >
+      <mat-calendar
+        [dateClass]="dateClass()"
+        [minDate]="minDate"
+        [maxDate]="maxDate"
+        class="
+          example-full-width
+          rounded-xl
+          example-month-picker
+          self-top
+          bg-white
+          text-pink-400
+          mat-calendar-header
+          secondary-font
+        "
+        [startAt]="whatIsSelected.start.day"
+        [selected]="getDateRange()"
+      >
+      </mat-calendar>
+    </mat-card>
+    <mat-card
+      class="
+        transparentBG
+        mx-1
+        demo-inline-calendar-card
+        my-2
+        transform
+        transparent
+        calender-width
+        overflow-visible
+        w-48
+        sm:w-64
+        md:w-72 md:my-5
+        lg:w-96
+      "
+    >
+      <mat-card-header class="text-center min-w-full w-full">
+        <mat-card-title class="text-center w-full">
+          <div
+            class="
+              primary-bg
+              rounded-2xl
+              px-5
+              p-2
+              text-center
+              flex flex-row
+              justify-center
+              items-center
+              w-full
+            "
+          >
+            <h1
+              class="text-white fancy-cursive-font"
+              style="text-transform: uppercase"
+            >
+              <b>
+                <span class="text-pink-300"> Your </span>
+                <span class="text-yellow-300"> Events </span>
+
+                <span class="text-purple-300"> This </span>
+
+                <span class="text-green-200"> Month </span>
+              </b>
+            </h1>
+          </div>
+        </mat-card-title>
+        <mat-card-subtitle
+          >Click event to see on calender</mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-card-content
+        class="flex flex-col gap-2 items-center justify-evenly"
+      >
+        <div *ngFor="let individualEvent of cal.GET">
+          <mat-card
+            *ngIf="includeThis(individualEvent.start.day)"
+            (click)="setSelected(individualEvent)"
+            class="
+              transform
+              rounded-xl
+              bg-gray-200
+              p-0
+              noPadding
+              my-5
+              hover:scale-105
+              duration-200
+              rounded-lg
+            "
+          >
+            <mat-card-header
+              class="
+                text-center
+                min-w-full
+                flex flex-row
+                justify-center
+                items-center
+              "
+            >
+              <mat-card-title
+                class="
+                  text-center text-purple-400
+                  mt-2
+                  fancy-cursive-font
+                "
+              >
+                <b> {{ individualEvent.title | uppercase }} </b>
+              </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content class="">
+              <h4 class="ml-5 align-middle text-center">
+                Start:
+                <span class="text-red-300 fancy-cursive-font">
+                  {{ individualEvent.start.day | date }}
+                </span>
+              </h4>
+              <h4 class="ml-5 align-middle text-center">
+                Stop:
+                <span class="text-blue-300 fancy-cursive-font">
+                  {{ individualEvent.stop.day | date }}
+                </span>
+              </h4>
+            </mat-card-content>
+            <mat-card-footer
+              class="
+                flex flex-row
+                justify-center
+                items-center
+                w-full
+                noMargin
+              "
+            >
+              <button
+                *ngIf="cal.GET.length !== 1"
+                mat-icon-button
+                class="transform hover:scale-105 hover:text-red-600"
+                (click)="toDelete(individualEvent)"
+              >
+                <mat-icon class="customColor"
+                  >delete_forever</mat-icon
+                >
+              </button>
+            </mat-card-footer>
+          </mat-card>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

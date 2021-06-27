@@ -1,0 +1,77 @@
+<div>
+  <h2 mat-dialog-title>Edit Event</h2>
+  <mat-dialog-content class="mat-typography overflow-y-visible">
+    <form
+      class="
+        example-form
+        flex flex-col
+        justify-evenly
+        items-end
+        secondary
+        gap-2
+      "
+      [formGroup]="range"
+    >
+      <mat-form-field class="example-full-width w-full">
+        <mat-label>Change Title? </mat-label>
+        <input
+          for="title"
+          formControlName="title"
+          matInput
+          placeholder="ex: Dinner with friends"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input
+          [rangePicker]="rangePicker"
+          [formGroup]="range"
+          class="min-w-full"
+          [min]="minDate"
+          [max]="maxDate"
+          class="w-24"
+        >
+          <input
+            matStartDate
+            placeholder="Start date"
+            formControlName="start"
+          />
+          <input
+            matEndDate
+            placeholder="End date"
+            formControlName="end"
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="rangePicker"
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker #rangePicker touchUi>
+          <mat-date-range-picker-actions>
+            <button mat-button matDateRangePickerCancel>
+              Cancel
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              matDateRangePickerApply
+              type="button"
+            >
+              Apply
+            </button>
+          </mat-date-range-picker-actions>
+        </mat-date-range-picker>
+      </mat-form-field>
+
+      <button
+        mat-button
+        type="button"
+        class="self-center my-2"
+        (click)="onSubmit()"
+      >
+        Submit
+      </button>
+    </form>
+  </mat-dialog-content>
+</div>

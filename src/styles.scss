@@ -1,0 +1,147 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "~@angular/material/theming";
+@import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Knewave&family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yantramanav:wght@900&display=swap");
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+$calenderapp-primary: mat-palette($mat-pink, 200);
+$calenderapp-accent: mat-palette($mat-light-blue, 100);
+
+// The warn palette is optional (defaults to red).
+$calenderapp-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$calenderapp-theme: mat-light-theme(
+  (
+    color: (
+      primary: $calenderapp-primary,
+      accent: $calenderapp-accent,
+      warn: $calenderapp-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($calenderapp-theme);
+/* You can add global styles to this file, and also import other style files */
+
+// Default settings for app
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Quick Color Setup
+
+/*
+Importing colors that I like from tailwind to an actual usuable class name bc for
+some reason inline class names don't work on every component unless it's a manually
+made class 
+
+*/
+.primary-text {
+  @apply text-gray-500;
+}
+
+.primary-bg {
+  @apply bg-gray-500;
+}
+
+.accent-text {
+  @apply text-blue-300;
+}
+
+.accent-bg {
+  @apply bg-blue-300;
+}
+
+.warn-text {
+  @apply text-red-500;
+}
+
+.warn-bg {
+  @apply bg-red-400;
+}
+
+.black-bg {
+  background-color: #333;
+}
+
+.black-text {
+  color: #333;
+}
+
+.pink-bg {
+  @apply bg-pink-400;
+}
+
+.pink-text {
+  @apply text-pink-400;
+}
+
+h1,
+p {
+  margin: 0px !important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+// Setting up global fonts
+
+.fancy-cursive-font {
+  font-family: "Knewave", cursive !important;
+  font-style: italic !important;
+}
+
+.secondary-font {
+  font-family: "Oswald", sans-serif !important;
+}
+
+.third-font {
+  font-family: "Oswald", sans-serif;
+}
+
+.fourth-font {
+  font-family: "Yantramanav", sans-serif;
+}
+
+// Button styling that applies to 3 navbars
+.clickColorChange {
+  &:hover,
+  &:active {
+    @apply text-blue-300;
+  }
+}
+
+.ease {
+  transition: ease;
+}
+
+.transparent {
+  background-color: transparent !important;
+
+  box-shadow: none !important;
+}

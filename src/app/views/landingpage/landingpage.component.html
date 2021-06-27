@@ -1,0 +1,65 @@
+<div
+  class="
+    primary-bg
+    min-h-screen min-w-full
+    flex
+    md:flex-row
+    justify-evenly
+    gap-2
+    items-center
+  "
+  [ngClass]="{
+    'flex-row': 'mobileLandscape',
+    'flex-col': '!mobileLandscape'
+  }"
+>
+  <h1
+    class="
+      accent-text
+      italic
+      px-5
+      mx-5
+      page-custom-font
+      font-1
+      big-font
+      transform
+      md:scale-150
+    "
+  >
+    Calendar
+  </h1>
+  <mat-card
+    class="
+      rounded-full
+      scale-125
+      sm:scale-150
+      duration-200
+      transform
+      px-2
+    "
+  >
+    <mat-card-header>
+      <mat-card-title>
+        <h1 class="accent-text text-2xl font-2 page-custom-font">
+          Get Started
+        </h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="px-2">
+      <div
+        class="
+          min-w-full
+          flex flex-col
+          md:flex-row
+          items-center
+          justify-evenly
+          gap-2
+        "
+      >
+        <button mat-raised-button class="font-2" routerLink="signup">
+          Sign up
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

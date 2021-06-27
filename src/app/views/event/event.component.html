@@ -1,0 +1,76 @@
+<div class="transform">
+  <h2 mat-dialog-title>Add New Event</h2>
+  <mat-dialog-content class="mat-typography overflow-y-visible">
+    <form
+      class="
+        example-form
+        flex flex-col
+        justify-evenly
+        items-center
+        secondary
+        gap-2
+      "
+      [formGroup]="range"
+    >
+      <mat-form-field class="example-full-width w-full">
+        <mat-label>Title</mat-label>
+        <input
+          for="title"
+          matInput
+          placeholder="ex: Dinner with friends"
+          formControlName="title"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-40">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input
+          [formGroup]="range"
+          [rangePicker]="rangePicker"
+          class="min-w-full"
+          [min]="minDate"
+          [max]="maxDate"
+        >
+          <input
+            matStartDate
+            placeholder="Start date"
+            formControlName="start"
+          />
+          <input
+            matEndDate
+            placeholder="End date"
+            formControlName="end"
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="rangePicker"
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker #rangePicker touchUi>
+          <mat-date-range-picker-actions>
+            <button mat-button matDateRangePickerCancel>
+              Cancel
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              matDateRangePickerApply
+            >
+              Apply
+            </button>
+          </mat-date-range-picker-actions>
+        </mat-date-range-picker>
+      </mat-form-field>
+
+      <button
+        mat-button
+        [mat-dialog-close]="true"
+        type="button"
+        class="self-center my-2"
+        (click)="submitForm()"
+      >
+        Submit
+      </button>
+    </form>
+  </mat-dialog-content>
+</div>

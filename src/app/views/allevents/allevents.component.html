@@ -1,0 +1,166 @@
+<mat-toolbar
+  class="
+    min-h-full
+    h-20
+    pink-bg
+    flex flex-row
+    justify-between
+    items-center
+  "
+>
+  <button
+    mat-button
+    class="sm:px-1 lg:px-10 clickColorChange"
+    routerLink="../calendar"
+  >
+    <mat-icon class="transform hover:scale-110 text-white customColor"
+      >arrow_back</mat-icon
+    >
+  </button>
+  <div
+    class="flex flex-row justify-between items-center flex-wrap gap-1"
+  >
+    <button
+      (click)="openDialog(dialogComponent2)"
+      mat-icon-button
+      class="example-icon lg:mx-4"
+      aria-label="Example icon-button with share icon"
+    >
+      <mat-icon
+        class="text-white transform hover:scale-110 clickColorChange"
+        matTooltip="Add event(s)"
+        >add</mat-icon
+      >
+    </button>
+    <h1 class="text-yellow-400 lg:mx-20 transform fancy-cursive-font">
+      {{ user.fetchUsername | uppercase }}
+    </h1>
+  </div>
+</mat-toolbar>
+
+<div
+  class="
+    min-h-screen min-w-full
+    bg-yellow-300
+    flex flex-col
+    justify-start
+    items-center
+  "
+>
+  <mat-card class="transform customCardWidth transparentBackground">
+    <mat-card-header class="text-center w-full">
+      <mat-card-title
+        class="
+          w-full
+          mb-10
+          fancy-cursive-font
+          transform
+          scale-150
+          text-center
+          flex
+          justify-center
+          items-center
+        "
+      >
+        <h1
+          class="
+            mx-4
+            text-purple-400
+            fancy-cursive-font
+            transform
+            scale-105
+            sm:scale-110
+            md:scale-125
+            lg:scale-125 lg:text-2xl
+          "
+        >
+          All Events
+        </h1>
+      </mat-card-title>
+      <mat-card-subtitle class="my-4 fancy-cursive-font">
+        click to edit event
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div
+        class="
+          lg:grid lg:grid-cols-3
+          flex flex-col
+          gap-1
+          justify-start
+          items-center
+          md:items-start
+          overflow-hidden
+          transform
+          rounded-sm
+          transparent
+        "
+      >
+        <div
+          *ngFor="let data of cal.GET"
+          class="my-2 bg-transparent shadow-none"
+        >
+          <div
+            class="
+              text-left
+              justify-center
+              items-center
+              rounded-xl
+              w-48
+              sm:w-52
+              md:w-64
+              transform
+              lg:w-52
+              p-4
+              hover:scale-105
+              duration-200
+            "
+          >
+            <mat-card
+              (click)="clickedFunction(data)"
+              class="transform hover:shadow-xl"
+            >
+              <mat-card-header>
+                <mat-card-title>
+                  <div
+                    class="
+                      flex flex-row
+                      items-center
+                      justify-between
+                      my-2
+                      min-w-full
+                      w-full
+                    "
+                  >
+                    <p
+                      class="fancy-cursive-font text-purple-400"
+                      style="word-wrap: normal"
+                    >
+                      Event:
+                      <b class="text-pink-300 italic secondary-font">
+                        {{ data.title }}
+                      </b>
+                    </p>
+                  </div>
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p class="fancy-cursive-font italic">
+                  Date: {{ data.start.day | date }}
+                </p>
+              </mat-card-content>
+              <mat-card-footer>
+                <button
+                  mat-icon-button
+                  (click)="toDeleteObject(data)"
+                >
+                  <mat-icon>delete_forever</mat-icon>
+                </button>
+              </mat-card-footer>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
